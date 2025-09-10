@@ -1,0 +1,260 @@
+/* Variáveis de Cores */
+:root {
+    --petrol-blue-dark: #00334d;
+    --petrol-blue-medium: #005a8d;
+    --petrol-blue-light: #0077b6;
+    --black-dark: #0a0a0a;
+    --black-light: #1a1a1a;
+    --white-text: #f0f0f0;
+    --grey-text: #cccccc;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--white-text);
+    background-color: var(--black-dark);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- */
+
+/* Header/Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(images/phelps.png) no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white-text);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 51, 77, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%);
+    opacity: 0.8;
+}
+
+/* Adiciona o fade na parte inferior da seção hero */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Altura do fade, ajuste se precisar */
+    background: linear-gradient(to top, var(--black-dark), transparent);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-content {
+    z-index: 1;
+}
+
+.hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: var(--grey-text);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--petrol-blue-light);
+    color: var(--white-text);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--petrol-blue-medium);
+    transform: translateY(-3px);
+}
+
+/* --- */
+
+/* Seções Gerais */
+.section {
+    padding: 80px 0;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    position: relative; /* Adicionado para permitir o posicionamento dos pseudo-elementos */
+    z-index: 1;
+}
+
+.section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3em;
+    margin-bottom: 40px;
+    color: var(--petrol-blue-light);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.section p {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    color: var(--grey-text);
+}
+
+/* --- */
+
+/* Seção Escura (Com fade de cima) */
+.section-dark {
+    background-color: var(--black-light);
+    border-top: 1px solid var(--petrol-blue-dark);
+    border-bottom: 1px solid var(--petrol-blue-dark);
+    position: relative;
+    z-index: 1;
+}
+
+/* Adiciona o fade na parte superior da seção escura */
+.section-dark::before {
+    content: '';
+    position: absolute;
+    top: -60px; /* Ajuste para controlar a altura do fade */
+    left: 0;
+    width: 100%;
+    height: 100px; /* Altura do gradiente */
+    background: linear-gradient(to bottom, transparent, var(--black-light)); /* Transição para a cor de fundo da seção */
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* --- */
+
+/* Grid Carreira */
+.grid-carreira {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--petrol-blue-dark);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.card h3 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--petrol-blue-light);
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.card p {
+    font-size: 1em;
+    color: var(--grey-text);
+    margin: 0;
+}
+
+.stats {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--white-text);
+    margin-top: 50px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* --- */
+
+/* Footer */
+.footer {
+    background-color: var(--black-dark);
+    color: var(--grey-text);
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid var(--petrol-blue-dark);
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+/* --- */
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    .section h2 {
+        font-size: 2.5em;
+    }
+
+    .grid-carreira {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .btn {
+        padding: 12px 25px;
+    }
+
+    .section h2 {
+        font-size: 2em;
+    }
+}
