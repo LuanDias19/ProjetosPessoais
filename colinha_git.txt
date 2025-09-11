@@ -1,0 +1,33 @@
+📝 Colinha Git – Erro de non-fast-forward
+
+🚫 O erro aparece assim:
+! [rejected] main -> main (non-fast-forward)
+error: failed to push some refs to ...
+
+✅ Como resolver (passo a passo):
+
+1. Confirme que está na branch certa:
+   git checkout main
+
+2. Traga as alterações do remoto:
+   - Modo normal (merge):
+     git pull origin main
+   - Modo linear (rebase – deixa o histórico mais limpo):
+     git pull --rebase origin main
+
+3. Agora faça o push normalmente:
+   git push -u origin main
+
+------------------------------------------
+
+🔥 Se você quiser ignorar o remoto e sobrescrever tudo:
+⚠️ Cuidado! Isso apaga os commits que estão no GitHub e não estão na sua máquina.
+
+   git push origin main --force
+
+------------------------------------------
+
+👉 Resumindo:
+- git pull antes do git push resolve 99% dos casos.
+- --rebase deixa o histórico mais bonito.
+- --force é só se você realmente quiser sobrescrever.
